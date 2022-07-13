@@ -21,6 +21,10 @@ mongoose.connect(config.mongoURI, {
 
 app.get('/', (req, res) => { res.send('Hello World! 안녕하세요! 바뀌었습니다!') });  //루트 디렉토리에 오면 Hello World를 출력
 
+app.get('/api/hello', (req, res) => {
+  res.send("리액트 실행 완료~");
+})
+
 app.post('/api/users/register', (req, res) => {
   //회원 가입 시 필요 정보들을 client에서 가져오면 그것들을 데이터 베이스에 넣어준다.
   const user = new User(req.body); //req.body에는 json 형식으로 데이터가 들어가 있음 ex. { id: hello, pass: 1234 }
